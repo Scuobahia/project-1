@@ -4,11 +4,11 @@ header {
     height: 1000px;
 }
 .title {
-padding-top: 20px;
-color: white;
-font-family: "Orbitron";
-font-size: 3vh;
-color: rgb(246, 122, 49);
+    padding-top: 20px;
+    color: white;
+    font-family: "Orbitron";
+    font-size: 3vh;
+    color: rgb(246, 122, 49);
 }
 .navbar {
     margin-top: 20px;
@@ -18,13 +18,25 @@ color: rgb(246, 122, 49);
     background-color: rgb(37, 44, 77);
 }
 .land{
-    padding-top: 100px;
-color:white ;
-text-align: center;
+    padding-top: 50px;
+    color:white ;
+    text-align: center;
+    width: 100%;
 }
 .landText {
-padding-top: 100px;
-font-family: "Orbitron";
-font-size: 3vh;
-color:white;
+    padding-top: 50px;
+    font-family: "Orbitron";
+    font-size: 3vh;
+    color:white;
+}
+
+.land-section {
+    width: 100%;
+    background-color: rgb(37, 44, 77);
+    justify-content: center;
+    text-align: left;
+}
+
+.land-section img {
+    border: 6px solid rgb(37, 44, 77)
 }

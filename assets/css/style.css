@@ -19,9 +19,15 @@ header {
 }
 /* Landing Page Styles */
 .land{
+<<<<<<< HEAD
+padding-top: 50px;
+color:white ;
+text-align: Justify;
+=======
 
     color:white ;
     text-align: Justify;
+>>>>>>> a93c77d2a5c7fb757e638c12884b68371fb8632f
 }
 .landText {
     font-family: "Orbitron";
@@ -68,6 +74,7 @@ background-color:rgba(0, 0, 0, 0);
 .formBtn{
     background-color: rgb(246, 122, 49);
     border: none;
+    padding-top: 50px;
     color:white ;
     text-align: center;
 }

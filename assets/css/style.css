@@ -68,7 +68,7 @@ background-color:rgba(0, 0, 0, 0);
 .formBtn{
     background-color: rgb(246, 122, 49);
     border: none;
-    padding-top: 50px;
+    
     color:white ;
     text-align: center;
 }
@@ -116,10 +116,23 @@ background-color:rgba(0, 0, 0, 0);
     font-family: "Orbitron";
     color: white;
 }
-
-.hero img {
-    border: 6px solid rgb(37, 44, 77);
-    
+/* Images Animation */
+.color img{
+    border:none;
+    border-radius: 10px;
+    filter: grayscale(100%);
+    -webkit-filter: grayscale(100%);
+    -webkit-transition: all 1s ease;
+ }
+ .color img:hover {
+    filter: grayscale(0%);
+    filter: gray;
+    -webkit-filter: grayscale(0%);
+    filter: none;
+    transition: 1s ease;
+ }
+.test {
+    height: 550px;
 }
 .travel-card {
   background-color: rgba(64,133,88,0.5);
@@ -131,3 +144,36 @@ background-color:rgba(0, 0, 0, 0);
 .answer-travel {
     margin-left: 150px;
 }
+/* Footer */
+footer {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: none;
+    background-color:rgb(246, 122, 49) ;
+    height: 200px;
+    color:rgb(37, 44, 77) ;
+}
+.follow {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+margin-top: 25px;
+}
+.resources {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+margin-top: 50px;
+}
+.about {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+margin-top: 75px;
+}
+
+/* .follow:hover {
+    color:#F2B157;
+    text-shadow: none;
+    text-decoration: underline;
+    text-underline-offset: 20px; */

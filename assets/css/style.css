@@ -1,0 +1,21 @@
+body {
+    background-image: url(https://source.unsplash.com/F6Da4r2x5to/2200x1600);
+    background-size: cover;
+}
+.title {
+padding-top: 20px;
+color: white;
+font-family: "Orbitron";
+font-size: 3vh;
+color: rgb(246, 122, 49);
+}
+.navbar {
+    margin-top: 20px;
+    padding-top: 12px;
+    padding-left: 200px;
+    font-family: "Orbitron";
+    background-color: rgb(37, 44, 77);
+}
+.navbarBtn {
+
+}

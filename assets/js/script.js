@@ -145,8 +145,8 @@ function fetchTravel() {
           //need to make the post requests work first
             console.log(data);
             alert("it worked")
-        }, error: function(data) {
-          console.log(data);
+        }, error: function(message) {
+          console.log(message);
         }
       });
     });

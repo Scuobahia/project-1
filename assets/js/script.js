@@ -50,7 +50,6 @@ function getVehicleMake() {
         else {
           getVehicleModel(userMake, make);
         }
-        //process the JSON data etc
     }, error: function(data) {
       console.log(data);
     }
@@ -59,6 +58,16 @@ function getVehicleMake() {
 
 function getVehicleModel(make, makeID) {
 //Gets the remaining info from the car form to find the model id to get the CO2 emeition information.
+  var userModel = "corolla"   //$("#model").val();
+  userModel = userModel.trim().toLowerCase().split(" ");
+    for (var i = 0; i < userModel.length; i++) {
+        userModel[i] = userModel[i].charAt(0).toUpperCase() + userModel[i].substring(1);
+    }
+    userModel = userModel.join(" ");
+
+    var userYear = "1999"//$("#year").val();
+    userYear = userYear.trim();
+    userYear = parseInt(userYear);
 
   $.ajax({
     url: 'https://www.carboninterface.com/api/v1/vehicle_makes/' + makeID + "/vehicle_models",
@@ -80,12 +89,40 @@ function getVehicleModel(make, makeID) {
           alert("Error Vehicle model or year not found! Please Try again")
         }
         else {
-          console.log(car, "It worked")
+          vehicleEstimateRequest(car);
         }
     }, error: function(data) {
       console.log(data);
     }
   })
+}
+
+function vehicleEstimateRequest(modelId) {
+  var distanceUnit = "mi" //$("#distance-unit").val();
+  var distanceValue = "100" //$("#distance-value").val();
+  distanceValue = parseInt(distanceValue.trim());
+
+  $.ajax({
+    url: 'https://www.carboninterface.com/api/v1/estimates',
+    method: "POST",
+    dataType: "json",
+    contentType: "application/json",
+    data: {
+      type: "vehicle",
+      distance_unit: distanceUnit,
+      distance_value: distanceValue,
+      vehicle_model_id: modelId
+    },
+    beforeSend: function(xhr) {
+         xhr.setRequestHeader("Authorization", "Bearer HZOkJvglLARzHsXWm755Q")
+    }, success: function(data){
+      //need to make the post requests work first
+        console.log(data);
+        alert("it worked")
+    }, error: function(data) {
+      console.log(data);
+    }
+  });
 }
 
 function fetchTravel() {
@@ -105,92 +142,16 @@ function fetchTravel() {
         beforeSend: function(xhr) {
              xhr.setRequestHeader("Authorization", "Bearer HZOkJvglLARzHsXWm755Q")
         }, success: function(data){
+          //need to make the post requests work first
             console.log(data);
             alert("it worked")
-            //process the JSON data etc
         }, error: function(data) {
           console.log(data);
         }
       });
     });
     getVehicleMake();
-}
+  }
 
-class TextScramble {
-    constructor(el) {
-      this.el = el
-      this.chars = '!<>-_\\/[]{}—=+*^?#________'
-      this.update = this.update.bind(this)
-    }
-    setText(newText) {
-      const oldText = this.el.innerText
-      const length = Math.max(oldText.length, newText.length)
-      const promise = new Promise((resolve) => this.resolve = resolve)
-      this.queue = []
-      for (let i = 0; i < length; i++) {
-        const from = oldText[i] || ''
-        const to = newText[i] || ''
-        const start = Math.floor(Math.random() * 40)
-        const end = start + Math.floor(Math.random() * 40)
-        this.queue.push({ from, to, start, end })
-      }
-      cancelAnimationFrame(this.frameRequest)
-      this.frame = 0
-      this.update()
-      return promise
-    }
-    update() {
-      let output = ''
-      let complete = 0
-      for (let i = 0, n = this.queue.length; i < n; i++) {
-        let { from, to, start, end, char } = this.queue[i]
-        if (this.frame >= end) {
-          complete++
-          output += to
-        } else if (this.frame >= start) {
-          if (!char || Math.random() < 0.28) {
-            char = this.randomChar()
-            this.queue[i].char = char
-          }
-          output += `<span class="dud">${char}</span>`
-        } else {
-          output += from
-        }
-      }
-      this.el.innerHTML = output
-      if (complete === this.queue.length) {
-        this.resolve()
-      } else {
-        this.frameRequest = requestAnimationFrame(this.update)
-        this.frame++
-      }
-    }
-    randomChar() {
-      return this.chars[Math.floor(Math.random() * this.chars.length)]
-    }
-  }
-  const phrases = [
-    "Earth's,",
-    'atmosphere is resilient',
-    'to many of the changes',
-    'humans have imposed on it...',
-    'our atmosphere will survie',
-    'but even the most advanced societies',
-    'can be more fragile',
-    'than the atmosphere'
-  ]
-  
-  const el = document.querySelector('.text')
-  const fx = new TextScramble(el)
-  
-  let counter = 0
-  const next = () => {
-    fx.setText(phrases[counter]).then(() => {
-      setTimeout(next, 800)
-    })
-    counter = (counter + 1) % phrases.length
-  }
-  
-  next()
   fetchTravel();
   

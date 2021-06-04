@@ -1,0 +1,12 @@
+body {
+    background-image: url(https://source.unsplash.com/F6Da4r2x5to/2200x1600);
+    background-size: cover;
+}
+.navbar {
+    margin-top: 30px;
+    padding-top: 12px;
+    background-color: rgb(37, 44, 77);
+}
+.navbarBtn {
+
+}

@@ -20,8 +20,13 @@ function travelElectricCar() {
 }
 
 function getVehicleMake() {
-  var userMake = $("#make").val();
-  userMake.trim()
+  // gets user data from car form and finds the make, then if it can find it calls the getVehicleModel function.
+  var userMake = "toyota"; //$("#make").val();
+  userMake = userMake.trim().toLowerCase().split(" ");
+    for (var i = 0; i < userMake.length; i++) {
+        userMake[i] = userMake[i].charAt(0).toUpperCase() + userMake[i].substring(1);
+    }
+    userMake = userMake.join(" ");
 
   $.ajax({
     url: 'https://www.carboninterface.com/api/v1/vehicle_makes',
@@ -31,10 +36,19 @@ function getVehicleMake() {
          xhr.setRequestHeader("Authorization", "Bearer HZOkJvglLARzHsXWm755Q")
     }, success: function(data){
         console.log(data);
+        var check = false;
         for (var i = 0; i < data.length; i++) {
           if (userMake === data[i].data.attributes.name) {
-
+            var make = data[i].data.id;
+            check = true;
+            break;
           }
+        }
+        if (!check) {
+          alert("Error Vehicle make not found! Please Try again")
+        }
+        else {
+          getVehicleModel(userMake, make);
         }
         //process the JSON data etc
     }, error: function(data) {
@@ -43,7 +57,9 @@ function getVehicleMake() {
   })
 }
 
-function getVehicleModel(makeID) {
+function getVehicleModel(make, makeID) {
+//Gets the remaining info from the car form to find the model id to get the CO2 emeition information.
+
   $.ajax({
     url: 'https://www.carboninterface.com/api/v1/vehicle_makes/' + makeID + "/vehicle_models",
     method: "GET",
@@ -52,8 +68,20 @@ function getVehicleModel(makeID) {
          xhr.setRequestHeader("Authorization", "Bearer HZOkJvglLARzHsXWm755Q")
     }, success: function(data){
         console.log(data);
-        var vehicleMakes = data;
-        //process the JSON data etc
+        var check = false;
+        for (var i = 0; i < data.length; i++) {
+          if (userModel === data[i].data.attributes.name && userYear === data[i].data.attributes.year) {
+            var car = data[i].data.id;
+            check = true;
+            break;
+          }
+        }
+        if (!check) {
+          alert("Error Vehicle model or year not found! Please Try again")
+        }
+        else {
+          console.log(car, "It worked")
+        }
     }, error: function(data) {
       console.log(data);
     }
@@ -68,7 +96,6 @@ function fetchTravel() {
         method: "POST",
         dataType: "json",
         contentType: "application/json",
-        processData: false,
         data: {
           electricity_unit: "kwh",
           electicity_value: 100.0,
@@ -86,7 +113,7 @@ function fetchTravel() {
         }
       });
     });
-    getVehicles();
+    getVehicleMake();
 }
 
 class TextScramble {

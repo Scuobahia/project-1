@@ -120,3 +120,13 @@ background-color:rgba(0, 0, 0, 0);
     border: 6px solid rgb(37, 44, 77);
     
 }
+.travel-card {
+  background-color: rgba(64,133,88,0.5);
+  color:rgb(246, 122, 49);
+}
+.info-travel {
+    margin-left: 50px;
+}
+.answer-travel {
+    margin-left: 150px;
+}

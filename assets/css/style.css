@@ -1,6 +1,7 @@
-body {
+header {
     background-image: url(https://source.unsplash.com/F6Da4r2x5to/2200x1600);
     background-size: cover;
+    height: 1000px;
 }
 .title {
 padding-top: 20px;
@@ -16,6 +17,14 @@ color: rgb(246, 122, 49);
     font-family: "Orbitron";
     background-color: rgb(37, 44, 77);
 }
-.navbarBtn {
-
+.land{
+    padding-top: 100px;
+color:white ;
+text-align: center;
+}
+.landText {
+padding-top: 100px;
+font-family: "Orbitron";
+font-size: 3vh;
+color:white;
 }

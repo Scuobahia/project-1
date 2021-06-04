@@ -18,7 +18,6 @@ header {
     background-color: rgb(37, 44, 77);
 }
 .land{
-<<<<<<< HEAD
 padding-top: 50px;
 color:white ;
 text-align: Justify;
@@ -58,7 +57,6 @@ color:white;
 .formBtn{
     background-color: rgb(246, 122, 49);
     border: none;
-=======
     padding-top: 50px;
     color:white ;
     text-align: center;
@@ -80,5 +78,4 @@ color:white;
 
 .land-section img {
     border: 6px solid rgb(37, 44, 77)
->>>>>>> ba4ff5dfced1ce45a390a3f61245f2a19cf80e10
 }

@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 // API_KEY: HZOkJvglLARzHsXWm755Q
 
 function travelCLicked() {
@@ -21,8 +19,50 @@ function travelElectricCar() {
     // When Electric car is selected get 
 }
 
+function getVehicles() {
+  $.ajax({
+    url: 'https://www.carboninterface.com/api/v1/vehicle_makes',
+    method: "GET",
+    contentType: "application/json",
+    beforeSend: function(xhr) {
+         xhr.setRequestHeader("Authorization", "Bearer HZOkJvglLARzHsXWm755Q")
+    }, success: function(data){
+        console.log(data);
+        var vehicleMakes = data;
+        //process the JSON data etc
+    }, error: function(data) {
+      console.log(data);
+    }
+  })
+}
+
 function fetchTravel() {
-    //fetches from the API the 
+    //fetches from the API information
+    $(document).ready(function() {
+      $.ajax({
+        url: 'https://www.carboninterface.com/api/v1/estimates',
+        method: "POST",
+        dataType: "json",
+        contentType: "application/json",
+        processData: false,
+        data: {
+          electricity_unit: "kwh",
+          electicity_value: 100.0,
+          country: "US",
+          state: "ut"
+        },
+        beforeSend: function(xhr) {
+             xhr.setRequestHeader("Authorization", "Bearer HZOkJvglLARzHsXWm755Q")
+        }, success: function(data){
+            console.log(data);
+            alert("it worked")
+            //process the JSON data etc
+        }, error: function(data) {
+          console.log(data);
+        }
+      });
+    });
+    getVehicles();
 }
 
 class TextScramble {
@@ -101,5 +141,5 @@ class TextScramble {
   }
   
   next()
+  fetchTravel();
   
->>>>>>> ba4ff5dfced1ce45a390a3f61245f2a19cf80e10

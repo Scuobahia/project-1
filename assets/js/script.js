@@ -1,6 +1,3 @@
-<<<<<<< HEAD
-f
-=======
 // API_KEY: HZOkJvglLARzHsXWm755Q
 
 function travelCLicked() {
@@ -158,4 +155,4 @@ function fetchTravel() {
 
   fetchTravel();
   
->>>>>>> 860c12b009e0c23793d7ed4020b19e7ef11fd054
+

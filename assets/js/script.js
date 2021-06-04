@@ -19,9 +19,33 @@ function travelElectricCar() {
     // When Electric car is selected get 
 }
 
-function getVehicles() {
+function getVehicleMake() {
+  var userMake = $("#make").val();
+  userMake.trim()
+
   $.ajax({
     url: 'https://www.carboninterface.com/api/v1/vehicle_makes',
+    method: "GET",
+    contentType: "application/json",
+    beforeSend: function(xhr) {
+         xhr.setRequestHeader("Authorization", "Bearer HZOkJvglLARzHsXWm755Q")
+    }, success: function(data){
+        console.log(data);
+        for (var i = 0; i < data.length; i++) {
+          if (userMake === data[i].data.attributes.name) {
+
+          }
+        }
+        //process the JSON data etc
+    }, error: function(data) {
+      console.log(data);
+    }
+  })
+}
+
+function getVehicleModel(makeID) {
+  $.ajax({
+    url: 'https://www.carboninterface.com/api/v1/vehicle_makes/' + makeID + "/vehicle_models",
     method: "GET",
     contentType: "application/json",
     beforeSend: function(xhr) {

@@ -18,13 +18,43 @@ color: rgb(246, 122, 49);
     background-color: rgb(37, 44, 77);
 }
 .land{
-    padding-top: 100px;
+padding-top: 50px;
 color:white ;
-text-align: center;
+text-align: Justify;
 }
 .landText {
-padding-top: 100px;
 font-family: "Orbitron";
 font-size: 3vh;
 color:white;
+}
+.landText2 {
+    font-size: 2vh;
+    font-family: "Orbitron";
+    color: white;
+}
+.span1 {
+    color:rgb(246, 122, 49);
+    font-size:3vh;
+    font-weight:bolder;
+}
+.joinForm {
+    display:flex;
+    flex-wrap: wrap;
+    width: 500px;
+    border: solid;
+    border-radius: 10px;
+    border-color: rgb(246, 122, 49);
+    background-color: rgb(37, 44, 77);
+    padding-top: 20px;
+    padding-bottom: 50px;
+    padding-left:30px ;
+    padding-right: 30px;
+    margin-left: 500px;
+    margin-top: 30px;
+    font-family: "Orbitron";
+    color: rgb(64, 133, 88);
+}
+.formBtn{
+    background-color: rgb(246, 122, 49);
+    border: none;
 }

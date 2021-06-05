@@ -157,23 +157,34 @@ footer {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-margin-top: 25px;
+    margin-top: 25px;
+    font-size: 2vh;
+    font-family: "Orbitron";
 }
 .resources {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-margin-top: 50px;
+    margin-top: 50px;
+    font-size: 2vh;
+    font-family: "Orbitron";
 }
 .about {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-margin-top: 75px;
+    margin-top: 75px;
+    font-size: 2vh;
+    font-family: "Orbitron";
 }
-
-/* .follow:hover {
-    color:#F2B157;
-    text-shadow: none;
-    text-decoration: underline;
-    text-underline-offset: 20px; */
+/* Footer Icons Styling */
+.footer-icons {
+    margin-top: 30px;
+    margin-left: 30px;
+}
+/* Footer Resources */
+.footer-list, a:link {
+    list-style: none;
+    text-decoration: none;
+    font-size: 15px;    
+}

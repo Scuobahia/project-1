@@ -3,6 +3,7 @@
     --main-color: rgb(0, 108, 158);
     --secondary-color: rgb(64,133,88);
     --third-color: rgb(37, 44, 77);
+    --form-background: rgba(37, 44, 77, 0.75);
 }
 
 .title-background {
@@ -42,11 +43,6 @@
     font-size: 2vh;
     font-family: "Orbitron";
     color: white;
-}
-.span1 {
-    color: var(--main-color);
-    font-size:3vh;
-    font-weight:bolder;
 }
 /* Join Form Styles */
 .joinForm {
@@ -193,22 +189,50 @@ footer {
     font-size: 15px;    
 }
 /* Second Page Styles!!!!!!!! Some Are Copies Of The First Page With Some Modifications  */
-.afterLanding-2 {
+.background-2 {
+    background-color: rgb(37, 44, 77);
+}
+
+.travel-estimates-blackbar {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    margin-top: 50px;
-    height: 120px;
     background-color: black;
     font-family: 'Orbitron';
     font-size: 2vh;
     color: white;
-    text-indent: 2em;
+    text-indent: 2em
 }
-.orange {
+.main-color {
     color: var(--main-color);
 }
+
+.card-background-2 {
+    background-color: var(--form-background);
+    border-radius: 8px;
+    font-family: "Orbitron";
+    color: white;
+}
+.card-background-2 input {
+    border: 3px solid var(--secondary-color);
+    outline: none;
+    background-color: rgba(0,0,0,0);
+}
+
+.card-background-2 label {
+    color: var(--secondary-color);
+}
+.card-background-2 input:focus {
+ background-color: white ;
+ color: black;
+ border: 4px 
+}
+
+.border-top-form {
+    border-top: 4px solid var(--third-color);
+}
+
 /* Travel Forms Styles */
 .travel-forms {
 margin-top: 50px;
@@ -222,15 +246,6 @@ letter-spacing: 2px;
     color:black;
     border-radius: 15px;
     font-family: "Orbitron";
-  }
-  .travel-card input {
-      background-color:var(--third-color);
-      outline: none;
-      border: none;
-      color: var(--main-color);
-  }
-  .travel-card input:focus {
-   background-color: white ;
   }
   
   .answer-travel {
@@ -279,6 +294,10 @@ letter-spacing: 2px;
 .footer-icons-2 {
     margin-top: 30px;
     margin-left: 30px;
+}
+
+.media-icons {
+    color: var(--main-color);
 }
 /* Footer Resources */
 .footer-list-2, a:link {

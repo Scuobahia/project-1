@@ -4,27 +4,32 @@ function navCLicked(event) {
     // Handles user clicks on a nav bar button
   event.preventDefault();
   var targetId = event.target.getAttribute("id");
+  console.log(targetId)
   switch (targetId){
+    case "title":
+      displayNoneAll();
+      $("#landing-page").removeClass("d-none");
+      break;
     case "travel-estimates":
-    displayNoneAll();
-    $("#travel-estimates-page").removeClass("d-none");
-    break;
+      displayNoneAll();
+      $("#travel-estimates-page").removeClass("d-none");
+      break;
     case "shipping":
-    displayNoneAll();
-
-    break;
+      displayNoneAll();
+      $("#shipping-page").removeClass("d-none");
+      break;
     case "global-carbon-emitions":
-    displayNoneAll();
-
-    break;
+      displayNoneAll();
+      $("#global-carbon-emissions-page").removeClass("d-none");
+      break;
     case "climate-change":
-    displayNoneAll();
-
-    break;
+      displayNoneAll();
+      $("#climate-change-page").removeClass("d-none");
+      break;
     case "about-us":
-    displayNoneAll();
-
-    break;
+      displayNoneAll();
+      $("#about-us-page").removeClass("d-none");
+      break;
   }
 }
 
@@ -191,12 +196,12 @@ function shippingEstimateRequest() {
       'content-type': 'application/json'
     },
     body: JSON.stringify({
-      "type": "flight",
-        "passengers": 2,
-        "legs": [
-          {"departure_airport": "sfo", "destination_airport": "yyz"},
-          {"departure_airport": "yyz", "destination_airport": "sfo"}
-        ]
+      "type": "shipping",
+      "weight_value": 200,
+      "weight_unit": "g",
+      "distance_value": 2000,
+      "distance_unit": "km",
+      "transport_method": "truck"
     }),
   }).then((response) => response.json())
   .then((data) => {
@@ -204,7 +209,7 @@ function shippingEstimateRequest() {
   });  
 }
 
-  $("#nav").on("click", navCLicked);
+  $("#header").on("click", navCLicked);
 
   
 

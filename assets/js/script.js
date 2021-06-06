@@ -6,21 +6,31 @@ function navCLicked(event) {
   var targetId = event.target.getAttribute("id");
   switch (targetId){
     case "travel-estimates":
-      getVehicleMake();
+    displayNoneAll();
+    $("#travel-estimates-page").removeClass("d-none");
     break;
     case "shipping":
+    displayNoneAll();
 
     break;
     case "global-carbon-emitions":
+    displayNoneAll();
 
     break;
     case "climate-change":
+    displayNoneAll();
 
     break;
     case "about-us":
+    displayNoneAll();
 
     break;
   }
+}
+
+function displayNoneAll() {
+  $("#landing-page").addClass("d-none");
+  $("#travel-estimates-page").addClass("d-none");
 }
 
 function travelElectricCar() {

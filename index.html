@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="./assets/css/style.css">
 </head>
 <body>
-  <header>
+  <header class="title-background">
     <div class="container title">
       <div class="row align-items-center">
         <div class="col">
@@ -22,7 +22,7 @@
     </div>
     <!-- NavBar -->
     <nav class="navbar" id="nav">
-      <form class="container-fluid justify-content-start align-items-center">
+      <form class="container-fluid justify-content-center align-items-center pt-1 pb-1">
         <button class="btn btn-outline-success me-3" type="button" id="travel-estimates">Travel Estimates</button>
         <button class="btn btn-outline-success me-3" type="button" id="shipping">Shipping</button>
         <button class="btn btn-outline-success me-3" type="button" id="global-carbon-emitions">Global Carbon Emitions</button>
@@ -30,10 +30,10 @@
         <button class="btn btn-outline-success me-3" type="button" id="about-us">About Us</button>
       </form>
     </nav>
-  
-  <!-- Landing Page -->
+  </header>
+    <!-- Landing Page -->
   <section class="" id="landing-page">
-    <div class="land">
+    <div class="land header-landing">
       <div class="container">
         <div class="row">
           <div class="col">
@@ -48,61 +48,60 @@
             <p>Become A Watcher</p>
           </div>
           <div class="col-6">
-              <!-- Form  -->
-                <!--Title  -->
-              <form class="row g-3 joinForm join-form">
-                <h3>Start the change</h3>
-                <!-- First Name -->
-                <div class="col-md-4">
-                  <label for="validationDefault01" class="form-label">First name</label>
-                  <input type="text" class="form-control is-valid" id="validationDefault01" placeholder="Mark" required>
-                </div>
-                <!-- Last Name -->
-                <div class="col-md-4">
-                  <label for="validationDefault02" class="form-label">Last name</label>
-                  <input type="text" class="form-control is-valid" id="validationDefault02" placeholder="Otto" required>
-                </div>
-                <!-- City -->
-                <div class="col-md-6">
-                  <label for="validationDefault03" class="form-label">City</label>
-                  <input type="text" class="form-control is-invalid" id="validationDefault03" aria-describedby="validationServer03Feedback" required>
-                </div>
-                <!-- State -->
-                <div class="col-md-3">
-                  <label for="validationDefault04" class="form-label">State</label>
-                  <select class="form-select is-invalid" id="validationDefault04" aria-describedby="validationServer04Feedback" required>
-                    <option selected disabled value="">Choose...</option>
-                    <option>...</option>
-                  </select>
-                </div>
-                <!-- Zip -->
-                <div class="col-md-3">
-                  <label for="validationDefault05" class="form-label">Zip</label>
-                  <input type="text" class="form-control is-invalid" id="validationDefault05" aria-describedby="validationServer05Feedback" required>
-                </div>
-                <!-- Agree to Terms Check Box -->
-                <div class="col-12">
-                  <div class="form-check">
-                    <input class="form-check-input is-invalid" type="checkbox" value="" id="invalidCheck3" aria-describedby="invalidCheck3Feedback" required>
-                    <label class="form-check-label" for="invalidCheck3">
-                      Agree to terms and conditions
-                    </label>
-                    <div id="invalidCheck3Feedback" class="invalid-feedback">
-                      You must agree before submitting.
-                    </div>
+            <!-- Form  -->
+              <!--Title  -->
+            <form class="row g-3 joinForm join-form">
+              <h3>Start the change</h3>
+              <!-- First Name -->
+              <div class="col-md-4">
+                <label for="validationDefault01" class="form-label">First name</label>
+                <input type="text" class="form-control is-valid" id="validationDefault01" placeholder="Mark" required>
+              </div>
+              <!-- Last Name -->
+              <div class="col-md-4">
+                <label for="validationDefault02" class="form-label">Last name</label>
+                <input type="text" class="form-control is-valid" id="validationDefault02" placeholder="Otto" required>
+              </div>
+              <!-- City -->
+              <div class="col-md-6">
+                <label for="validationDefault03" class="form-label">City</label>
+                <input type="text" class="form-control is-invalid" id="validationDefault03" aria-describedby="validationServer03Feedback" required>
+              </div>
+              <!-- State -->
+              <div class="col-md-3">
+                <label for="validationDefault04" class="form-label">State</label>
+                <select class="form-select is-invalid" id="validationDefault04" aria-describedby="validationServer04Feedback" required>
+                  <option selected disabled value="">Choose...</option>
+                  <option>...</option>
+                </select>
+              </div>
+              <!-- Zip -->
+              <div class="col-md-3">
+                <label for="validationDefault05" class="form-label">Zip</label>
+                <input type="text" class="form-control is-invalid" id="validationDefault05" aria-describedby="validationServer05Feedback" required>
+              </div>
+              <!-- Agree to Terms Check Box -->
+              <div class="col-12">
+                <div class="form-check">
+                  <input class="form-check-input is-invalid" type="checkbox" value="" id="invalidCheck3" aria-describedby="invalidCheck3Feedback" required>
+                  <label class="form-check-label" for="invalidCheck3">
+                    Agree to terms and conditions
+                  </label>
+                  <div id="invalidCheck3Feedback" class="invalid-feedback">
+                    You must agree before submitting.
                   </div>
                 </div>
-                <!-- Submit Button -->
-                <div class="col-12">
-                  <button class="btn btn-primary formBtn" type="submit">Submit form</button>
-                </div>
-              </form>
-            </div>
+              </div>
+              <!-- Submit Button -->
+              <div class="col-12">
+                <button class="btn btn-primary formBtn" type="submit">Submit form</button>
+              </div>
+            </form>
           </div>
         </div>
       </div>
-  </header>
-            <!-- Transition -->
+    </div>
+    <!-- Transition -->
     <div class="container-fluid afterLanding d-none">
       <div class="row">
         <div class="col">
@@ -110,7 +109,7 @@
         </div>
       </div>
     </div>
-          <!-- End of Transition --> 
+    <!-- End of Transition --> 
     <!-- Travel Estimates -->
     <section class="hero " id="travel-estimates">
       <div class="container-fluid">
@@ -162,9 +161,9 @@
       </div>
     </section>
   </section>
-    <!-- Second Page Travel Estimates -->
-    <!-- Black Bar -->
+  <!-- Second Page Travel Estimates -->
   <section class="d-none" id="travel-estimates-page">
+    <!-- Black Bar -->
     <div class="container-fluid afterLanding-2">
       <div class="row">
         <div class="col">

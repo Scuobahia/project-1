@@ -19,9 +19,8 @@ header {
 }
 /* Landing Page Styles */
 .land{
-padding-top: 50px;
-color:white ;
-text-align: Justify;
+    color:white ;
+    text-align: Justify;
 }
 .landText {
     font-family: "Orbitron";
@@ -38,7 +37,7 @@ text-align: Justify;
     font-size:3vh;
     font-weight:bolder;
 }
-/* Form Styles */
+/* Join Form Styles */
 .joinForm {
     display:flex;
     flex-wrap: wrap;
@@ -68,7 +67,7 @@ background-color:rgba(0, 0, 0, 0);
 .formBtn{
     background-color: rgb(246, 122, 49);
     border: none;
-    padding-top: 50px;
+    
     color:white ;
     text-align: center;
 }
@@ -76,7 +75,7 @@ background-color:rgba(0, 0, 0, 0);
     background-color:rgb(64,133,88) ;
 
 }
-/* End Of Form Styles */
+/* End Of Join Form Styles */
 .landText {
     padding-top: 50px;
     font-family: "Orbitron";
@@ -116,8 +115,162 @@ background-color:rgba(0, 0, 0, 0);
     font-family: "Orbitron";
     color: white;
 }
+/* Images Animation */
+.color img{
+    border:none;
+    border-radius: 10px;
+    filter: grayscale(100%);
+    -webkit-filter: grayscale(100%);
+    -webkit-transition: all 1s ease;
+ }
+ .color img:hover {
+    filter: grayscale(0%);
+    filter: gray;
+    -webkit-filter: grayscale(0%);
+    filter: none;
+    transition: 1s ease;
+ }
+.test {
+    height: 550px;
+}
+.info-travel {
+    margin-left: 50px;
+}
+/* Footer */
+footer {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: none;
+    background-color:rgb(246, 122, 49) ;
+    height: 200px;
+    color:rgb(37, 44, 77) ;
+}
+.follow {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 25px;
+    font-size: 2vh;
+    font-family: "Orbitron";
+}
+.resources {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 50px;
+    font-size: 2vh;
+    font-family: "Orbitron";
+}
+.about {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 75px;
+    font-size: 2vh;
+    font-family: "Orbitron";
+}
+/* Footer Icons Styling */
+.footer-icons {
+    margin-top: 30px;
+    margin-left: 30px;
+}
+/* Footer Resources */
+.footer-list, a:link {
+    list-style: none;
+    text-decoration: none;
+    font-size: 15px;    
+}
+/* Second Page Styles!!!!!!!! Some Are Copies Of The First Page With Some Modifications  */
+.afterLanding-2 {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+    height: 120px;
+    background-color: black;
+    font-family: 'Orbitron';
+    font-size: 2vh;
+    color: white;
+    text-indent: 2em;
+}
+.orange {
+    color:rgb(246, 122, 49)  ;
+}
+/* Travel Forms Styles */
+.travel-forms {
+margin-top: 50px;
+display: flex;
+flex-wrap: wrap;
+justify-content: center;
+letter-spacing: 2px;
+}
+.travel-card {
+    background-color: rgba(64,133,88,0.8);
+    color:black;
+    border-radius: 15px;
+    font-family: "Orbitron";
+  }
+  .travel-card input {
+      background-color:rgb(37, 44, 77) ;
+      outline: none;
+      border: none;
+      color:rgb(246, 122, 49) ;
+  }
+  .travel-card input:focus {
+   background-color: white ;
+  }
+  
+  .answer-travel {
+    margin-left: 150px;
+    background-color:rgba(246, 122, 49,0.8) ;
+    color:black ;
+    border-radius: 15px;
+    font-family: "Orbitron";
+}
 
-.hero img {
-    border: 6px solid rgb(37, 44, 77);
-    
+/* Footer Second Page */
+.footer-2 {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 55px;
+    background-color:rgb(37, 44, 77);
+    height: 200px;
+    color:rgb(37, 44, 77);
+    color:rgb(246, 122, 49);
+}
+.follow-2 {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 25px;
+    font-size: 2vh;
+    font-family: "Orbitron";
+}
+.resources-2 {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 50px;
+    font-size: 2vh;
+    font-family: "Orbitron";
+}
+.about-2 {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 75px;
+    font-size: 2vh;
+    font-family: "Orbitron";
+}
+/* Footer Icons Styling */
+.footer-icons-2 {
+    margin-top: 30px;
+    margin-left: 30px;
+}
+/* Footer Resources */
+.footer-list-2, a:link {
+    list-style: none;
+    text-decoration: none;
+    font-size: 15px;    
 }

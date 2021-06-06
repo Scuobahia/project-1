@@ -197,3 +197,4 @@ function shippingEstimateRequest() {
   $("#nav").on("click", navCLicked);
 
   
+

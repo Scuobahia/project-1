@@ -176,8 +176,8 @@
     <!-- Form -->
     <div class="row">
       <div class="col-4">
-        <div class="mx-2 my-2 py-2 card-background-2">
-          <h3 class="text-center text-white">History</h3>
+        <div class="mx-2 my-2 py-2 form-styles">
+          <h3 class="text-center text-white">Method of Travel</h3>
           <div class="border-top-form">
 
           </div>
@@ -185,36 +185,83 @@
       </div>
 
       <div class="col-4">
-        <div class="mx-2 my-2 py-2 card-background-2">
+        <div class="mx-2 my-2 py-2 form-styles">
+          <h3 class="text-center text-white">Results</h3>
+          <div class="border-top-form">
 
+          </div>
         </div>
       </div>
 
-      <div class="col-4">
-        <div class="mx-2 my-2 py-2 card card-background-2 info-travel">
-          <div class="card-header">Vehicle Data</div>
-          <div class="card-body">
+      <div class="col-4 " id="vehicle-form">
+        <div class="mx-2 my-2 py-2 card form-styles info-travel">
+          <h3 class="text-center">Vehicle Data</h3>
+          <div class="card-body border-top-form">
             <h5 class="card-title">Please Enter the Following :</h5>
             <div class="form-floating mb-3">
               <input type="text" class="form-control" id="make floatingInput" placeholder="d-none">
-              <label for="floatingInput">Maker</label>
+              <label for="floatingInput">Make</label>
             </div>
             <div class="form-floating mb-3">
               <input type="text" class="form-control" id="model floatingInput" placeholder="d-none">
-              <label for="floatingPassword">Model</label>
+              <label for="floatingInput">Model</label>
             </div>
             <div class="form-floating mb-3">
               <input type="text" class="form-control" id="year floatingInput" placeholder="d-none">
               <label for="floatingInput">Year</label>
             </div>
-            <select class="form-select" aria-label="Default select example">
-              <option selected>Open this select menu</option>
-              <option value="1">Miles</option>
-              <option value="2">Kilometers</option>
-            </select>
+            <div class="row mb-3">
+              <div class="col-7">
+                <div class="form-floating ">
+                  <input type="text" class="form-control" id="distance-value floatingInput" placeholder="d-none">
+                  <label for="floatingInput">Distance Value</label>
+                </div>
+              </div>
+              <div class="col-4">
+                <select class=" form-select" aria-label="Default select example">
+                  <option disabled selected>Unit</option>
+                  <option value="mi">Miles</option>
+                  <option value="km">KM</option>
+                </select>
+              </div>
+            </div>
+            <div>
+              <button id="vehicle-form-btn">Submit</button>
+            </div>
           </div>
         </div> 
-      </div>                        
+      </div>
+      
+      <div class="col-4 d-none" id="flight-form">
+        <div class="mx-2 my-2 py-2 card form-styles info-travel">
+          <h3 class="text-center">Flight Data</h3>
+          <div class="card-body border-top-form">
+            <h5 class="card-title">Please Enter the Following :</h5>
+            <div class="form-floating mb-3">
+              <input type="text" class="form-control" id="passangers floatingInput" placeholder="d-none">
+              <label for="floatingInput"># of Passangers</label>
+            </div>
+            <div class="form-floating mb-3">
+              <input type="text" class="form-control" id="d-airport-code floatingInput" placeholder="d-none">
+              <label for="floatingInput">Departure Airport Code</label>
+            </div>
+            <div class="form-floating mb-2">
+              <input type="text" class="form-control" id="a-airport-code floatingInput" placeholder="d-none">
+              <label for="floatingInput">Ariving Airport Code</label>
+            </div>
+            <div class="form-check mb-2">
+              <input class="form-check-input" type="checkbox" value="return-trip" id="flexCheckDefault">
+              <label class="form-check-label" for="flexCheckDefault">
+                Include Return Trip
+              </label>
+            </div>
+            <div>
+              <button id="airplane-form-btn">Submit</button>
+            </div>
+            </div>
+          </div>
+        </div> 
+      </div>
     </div>
   </section> 
   <!-- End of Travel Estimates -->
@@ -304,7 +351,8 @@
   <script src="https://code.jquery.com/jquery-3.6.0.min.js" 
   integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" 
   crossorigin="anonymous"></script>
-  <script src="./assets/js/script.js"></script>
+  <script type="text/javascript" src="./assets/js/airports.json"></script>
+  <script type="text/javascript" src="./assets/js/script.js"></script>
 </body>
 </html>
 

@@ -1,5 +1,5 @@
 // API_KEY: HZOkJvglLARzHsXWm755Q
-
+var airports = {};
 function navCLicked(event) {
     // Handles user clicks on a nav bar button
   event.preventDefault();
@@ -166,7 +166,7 @@ function electricityEstimateRequest() {
 }
 
 function flightEstimateRequest() {
-
+  // average flights each day: 285,0000
   fetch("https://www.carboninterface.com/api/v1/estimates", {
     method: "POST",
     headers: {

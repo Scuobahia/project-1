@@ -51,7 +51,7 @@ function displayNoneAll() {
   $("#shipping-page").addClass("d-none");
   $("#global-carbon-emissions-page").addClass("d-none");
   $("#climate-change-page").addClass("d-none");
-  $("#about-us-page").removeClass("d-none");
+  $("#about-us-page").addClass("d-none");
 }
 
 function footerClassChange() {

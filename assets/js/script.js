@@ -2,6 +2,15 @@ var airports = {};
 var dataTotal = {};
 var dataPerPerson = {};
 var flightCount = 0;
+var aviationGlobalEmitions = 943000000;  //943,000,000 Metric Tons, 29.90233 Metric Tons per Second, 0.2990233 every 10ms
+var vehicleGlobalEmissions = 6000000000;   //6,000,000,000 Metric Tons, 190.25875 Metric Tons per Second, 1.9025875 every 10ms
+var shippingGlobalEmissions = 848000000;   //848,000,000 Metric Tons, 26.88990 Metric tons per Second, 0.2688990 every 10ms
+var energyGenerationGlobalEmissions = 33100000000; //33,100,000,000 Metric Tons, 1,049.59411 Metric Tons per Second, 10.4959411 every 10ms
+var totalGlobalEmissions = 40891000000 ; //40,891,000,000 Metric Tons, 1,296.64510 Metric Tons per Second, 12.9664510 every 10ms
+// To give a little prespective on these numbers: Imagine lifting an entire mountain that is 10000 feet tall into the sky. 
+// Now pulvize the mountain and turn it into dust. Now spread that dust over the entire planet over the next 6 years. 
+//Now turn all that dust in to Carbon Dioxide. This is how much CO2 we are putting in to the atmosphere.
+
 
 function navCLicked(event) {
     // Handles user clicks on a nav bar button
@@ -146,7 +155,7 @@ function getVehicleModel(make, makeID) {
   })
 }
 
-function vehicleEstimateRequest(modelId, make, model, year) {
+function vehicleEstimateRequest(modelID, make, model, year) {
   //Posts the request to the API and gets the carbon emitions
   var distanceUnit = $("#distance-unit").val();
   var distanceValue = $("#distance-value").val();
@@ -162,7 +171,7 @@ function vehicleEstimateRequest(modelId, make, model, year) {
       "type": "vehicle",
       "distance_unit": distanceUnit,
       "distance_value": distanceValue,
-      "vehicle_model_id": modelId
+      "vehicle_model_id": modelID
     }),
   }).then((response) => response.json())
   .then((data) => {
@@ -175,27 +184,6 @@ function vehicleEstimateRequest(modelId, make, model, year) {
     var carbonEmitions = data.data.attributes.carbon_lb;
     $("#results")
     .html("<p class='py-2 px-2 text-center'>Your total cabon emitions for your <span class='main-color fw-bold'>" + make + " " + model + " " + year + "</span> after driving <span class='main-color fw-bold'>" + distanceValue + " " + unit + "</span> would be: <span class='main-color fw-bold'>" + carbonEmitions + " Pounds</span> of CO2 released in to the atmosphere. </p>" );
-  });
-}
-
-function electricityEstimateRequest() {
-    //fetches electricity estimates from the api based on user data.
-  fetch("https://www.carboninterface.com/api/v1/estimates", {
-    method: "POST",
-    headers: {
-      'Authorization': 'Bearer HZOkJvglLARzHsXWm755Q',
-      'content-type': 'application/json'
-    },
-    body: JSON.stringify({
-      "type": "electricity",
-      "electricity_unit": "kwh",
-      "electricity_value": 100,
-      "country": "us",
-      "state": "ut",
-    }),
-  }).then((response) => response.json())
-  .then((data) => {
-    console.log(data);
   });
 }
 
@@ -241,7 +229,7 @@ function postFlightData() {
   var distance = dataTotal.data.attributes.distance_value;
   var carbonPerPerson = dataPerPerson.data.attributes.carbon_lb;
 
-  $("#results").html("<p class='py-2 px-2 text-center'>Your total cabon emitions for your flight are <span class='main-color fw-bold'>" + pounds + " Pounds or " + mt + " Megatons " + "</span>of CO2 put in to the atmosphere with a total distance traveled of: <span class='main-color fw-bold'>" + distance + " Miles" +"</span>. The carbon emissions per person are:  <span class='main-color fw-bold'>" + carbonPerPerson + " Pounds</span> of CO2 released per person in to the atmosphere durring the flight. </p>" );
+  $("#results").html("<p class='py-2 px-2 text-center'>Your total cabon emitions for your flight are <span class='main-color fw-bold'>" + pounds + " Pounds or " + mt + " Metric Tons " + "</span>of CO2 put in to the atmosphere with a total distance traveled of: <span class='main-color fw-bold'>" + distance + " Miles" +"</span>. The carbon emissions per person are:  <span class='main-color fw-bold'>" + carbonPerPerson + " Pounds</span> of CO2 released per person in to the atmosphere durring the flight. </p>" );
 }  
 
 function flightEstimateRequest(passengers, legs) {
@@ -277,8 +265,29 @@ function flightEstimateRequest(passengers, legs) {
   });
 }
 
-function shippingEstimateRequest() {
+function electricityEstimateRequest() {
+  //fetches electricity estimates from the api based on user data.
+  fetch("https://www.carboninterface.com/api/v1/estimates", {
+    method: "POST",
+    headers: {
+      'Authorization': 'Bearer HZOkJvglLARzHsXWm755Q',
+      'content-type': 'application/json'
+    },
+    body: JSON.stringify({
+      "type": "electricity",
+      "electricity_unit": "kwh",
+      "electricity_value": 100,
+      "country": "us",
+      "state": "ut",
+    }),
+  }).then((response) => response.json())
+  .then((data) => {
+    console.log(data);
+  });
+}
 
+function shippingEstimateRequest() {
+  //fetches shipping estimates from the api based on user data
   fetch("https://www.carboninterface.com/api/v1/estimates", {
     method: "POST",
     headers: {
@@ -297,6 +306,14 @@ function shippingEstimateRequest() {
   .then((data) => {
     console.log(data);
   });  
+}
+
+function initalizeGlobalEmissions() {
+
+}
+
+function globalEmissions() {
+
 }
 
 //Event Handlers

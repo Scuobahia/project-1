@@ -193,7 +193,7 @@ footer {
     text-decoration: none;
     font-size: 15px;    
 }
-/* Second Page Styles!!!!!!!! Some Are Copies Of The First Page With Some Modifications  */
+/* Second Page Styles  */
 .background-2 {
     background-color: rgb(37, 44, 77);
 }
@@ -209,11 +209,13 @@ footer {
     color: white;
     text-indent: 2em
 }
+
 .form-styles {
     background-color: var(--third-color);
     border-radius: 8px;
     font-family: "Orbitron";
     color: white;
+    height: 450px;
 }
 
 .form-styles input,

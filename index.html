@@ -178,50 +178,53 @@
         <div class="mx-2 my-2 py-2 form-styles">
           <h3 class="text-center text-white">Method of Travel</h3>
           <div class="border-top-form"></div>
-          <div class="px-3 mt-2">
+          <div class="px-3 my-2">
             <p>See how much carbon dioxide your car puts in to the atmosphere after driving a certin distance!</p>
-            <button class="col-12" id="vehicle-btn">Car</button>
+            <button class="col-12 py-2" id="vehicle-btn">Car</button>
           </div>
-          <div class="px-3 mt-2">
-            <p>See how much carbon dioxide your car puts in to the atmosphere after driving a certin distance!</p>
-            <button class="col-12" id="vehicle-btn">Car</button>
-          </div>
-        </div>
-      </div>
-      <div class="col-4">
-        <div class="mx-2 my-2 py-2 form-styles">
-          <h3 class="text-center text-white">Results</h3>
-          <div class="border-top-form">
+          <div class="px-3 my-3">
+            <p>See how much carbon dioxide your flight will put into the atmosphere! Just enter in the airport IATA code for your arival and destination airports. This can be found by googleing your airport and entering in the 3 letter code found on the search page.</p>
+            <button class="col-12 py-2" id="flight-btn">Flight</button>
           </div>
         </div>
       </div>
 
-      <div class="col-4 " id="vehicle-form">
+      <div class="col-4">
+        <div class="mx-2 my-2 py-2 form-styles">
+          <h3 class="text-center text-white">Results</h3>
+          <div class="border-top-form"></div>
+          <div id="results">
+
+          </div>
+        </div>
+      </div>
+
+      <form class="col-4" id="vehicle-form">
         <div class="mx-2 my-2 py-2 card form-styles info-travel">
           <h3 class="text-center">Vehicle Data</h3>
           <div class="card-body border-top-form">
             <h5 class="card-title">Please Enter the Following :</h5>
             <div class="form-floating mb-3">
-              <input type="text" class="form-control" id="make floatingInput" placeholder="d-none">
-              <label for="floatingInput">Make</label>
+              <input type="text" class="form-control" id="make" placeholder="d-none">
+              <label for="make">Make</label>
             </div>
             <div class="form-floating mb-3">
-              <input type="text" class="form-control" id="model floatingInput" placeholder="d-none">
-              <label for="floatingInput">Model</label>
+              <input type="text" class="form-control" id="model" placeholder="d-none">
+              <label for="model">Model</label>
             </div>
             <div class="form-floating mb-3">
-              <input type="text" class="form-control" id="year floatingInput" placeholder="d-none">
-              <label for="floatingInput">Year</label>
+              <input type="number" class="form-control" id="year" placeholder="d-none">
+              <label for="year">Year</label>
             </div>
             <div class="row mb-3">
               <div class="col-7">
                 <div class="form-floating ">
-                  <input type="text" class="form-control" id="distance-value floatingInput" placeholder="d-none">
-                  <label for="floatingInput">Distance Value</label>
+                  <input type="number" class="form-control" id="distance-value" placeholder="d-none">
+                  <label for="distance-value">Distance Value</label>
                 </div>
               </div>
               <div class="col-4">
-                <select class=" form-select" aria-label="Default select example">
+                <select class=" form-select" aria-label="Default select example" id="distance-unit">
                   <option disabled selected>Unit</option>
                   <option value="mi">Miles</option>
                   <option value="km">KM</option>
@@ -233,9 +236,9 @@
             </div>
           </div>
         </div> 
-      </div>
+      </form>
       
-      <div class="col-4 d-none" id="flight-form">
+      <form class="col-4 d-none" id="flight-form">
         <div class="mx-2 my-2 py-2 card form-styles info-travel">
           <h3 class="text-center">Flight Data</h3>
           <div class="card-body border-top-form">
@@ -261,10 +264,9 @@
             <div>
               <button id="airplane-form-btn">Submit</button>
             </div>
-            </div>
           </div>
         </div> 
-      </div> 
+      </form> 
 
       <div class="row">
         <div class="col-12 d-none d-md-block">
@@ -361,7 +363,6 @@
   <script src="https://code.jquery.com/jquery-3.6.0.min.js" 
   integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" 
   crossorigin="anonymous"></script>
-  <script type="text/javascript" src="./assets/js/airports.json"></script>
   <script type="text/javascript" src="./assets/js/script.js"></script>
 </body>
 </html>

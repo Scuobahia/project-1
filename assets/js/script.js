@@ -60,10 +60,6 @@ function footerClassChange() {
   $("#footer").removeClass("");
 }
 
-function travelElectricCar() {
-    // When Electric car is selected get 
-}
-
 function getVehicleMake(event) {
   // gets user data from car form and finds the make, then if it can find it calls the getVehicleModel function.
   event.preventDefault();
@@ -248,7 +244,6 @@ function postFlightData() {
   $("#results").html("<p class='py-2 px-2 text-center'>Your total cabon emitions for your flight are <span class='main-color fw-bold'>" + pounds + " Pounds or " + mt + " Megatons " + "</span>of CO2 put in to the atmosphere with a total distance traveled of: <span class='main-color fw-bold'>" + distance + " Miles" +"</span>. The carbon emissions per person are:  <span class='main-color fw-bold'>" + carbonPerPerson + " Pounds</span> of CO2 released per person in to the atmosphere durring the flight. </p>" );
 }  
 
-
 function flightEstimateRequest(passengers, legs) {
   // average flights each day: 285,0000
   fetch("https://www.carboninterface.com/api/v1/estimates", {
@@ -313,7 +308,6 @@ function shippingEstimateRequest() {
     $("#flight-form").addClass("d-none");
     $("#img-vehicles").removeClass("d-none");
     $("#img-flight").addClass("d-none");
-
   });
   $("#flight-btn").on("click", function(event) {
     event.preventDefault();
@@ -325,5 +319,5 @@ function shippingEstimateRequest() {
   $("#vehicle-form").on("submit", getVehicleMake);
   $("#flight-form").on("submit", flightFormSubmit);
 
-  
+
 

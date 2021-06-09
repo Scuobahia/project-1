@@ -163,114 +163,115 @@
 
   <!-- Start Second Page Travel Estimates -->
   <section class="d-none row" id="travel-estimates-page">
-    <div class="container-fluid travel-estimates-blackbar py-2">
-      <div class="row">
-        <div class="col">
+    <div class="container-fluid">
+      <div class="row travel-estimates-blackbar py-2">
+        <div class="col text-center">
           <p><span class="main-color">Transportion</span> accounts for around <span class="main-color">one-fifth of global carbon dioxide emissions.</span> In some countries, often richer countries with populations that travel often, <span class="main-color">transport</span> can be one of the largest segments of an individual’s carbon <span class="main-color">footprint.</span></p>
           <p>Find out about your <span class="main-color">own</span> individual carbon footprint by filling the <span class="main-color">form</span> below.</p>
         </div>
       </div>
-    </div>
-
-    <div class="row height">
-      <div class="col-4">
-        <div class="mx-2 my-2 py-2 form-styles">
-          <h3 class="text-center text-white">Method of Travel</h3>
-          <div class="border-top-form"></div>
-          <div class="px-3 my-2">
-            <p>See how much carbon dioxide your car puts in to the atmosphere after driving a certin distance!</p>
-            <button class="col-12 py-2" id="vehicle-btn">Car</button>
-          </div>
-          <div class="px-3 my-3">
-            <p>See how much carbon dioxide your flight will put into the atmosphere! Just enter in the airport IATA code for your arival and destination airports. This can be found by googleing your airport and entering in the 3 letter code found on the search page.</p>
-            <button class="col-12 py-2" id="flight-btn">Flight</button>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-4">
-        <div class="mx-2 my-2 py-2 form-styles">
-          <h3 class="text-center text-white">Results</h3>
-          <div class="border-top-form"></div>
-          <div id="results" class="fs-5"></div>
-        </div>
-      </div>
-
-      <form class="col-4" id="vehicle-form">
-        <div class="mx-2 my-2 py-2 card form-styles info-travel">
-          <h3 class="text-center">Vehicle Data</h3>
-          <div class="card-body border-top-form">
-            <h5 class="card-title">Please Enter the Following :</h5>
-            <div class="form-floating mb-3">
-              <input type="text" class="form-control" id="make" placeholder="d-none" required>
-              <label for="make">Make</label>
-            </div>
-            <div class="form-floating mb-3">
-              <input type="text" class="form-control" id="model" placeholder="d-none" required>
-              <label for="model">Model</label>
-            </div>
-            <div class="form-floating mb-3">
-              <input type="number" class="form-control" id="year" placeholder="d-none" required>
-              <label for="year">Year</label>
-            </div>
-            <div class="row mb-3">
-              <div class="col-7">
-                <div class="form-floating ">
-                  <input type="number" class="form-control" min="1" id="distance-value" placeholder="d-none" required>
-                  <label for="distance-value">Distance Value</label>
-                </div>
-              </div>
-              <div class="col-4">
-                <select class=" form-select" aria-label="Default select example" id="distance-unit" required>
-                  <option disabled selected>Unit</option>
-                  <option value="mi">Miles</option>
-                  <option value="km">KM</option>
-                </select>
-              </div>
-            </div>
-            <div>
-              <button id="vehicle-form-btn">Submit</button>
-            </div>
-          </div>
-        </div> 
-      </form>
-      
-      <form class="col-4 d-none" id="flight-form">
-        <div class="mx-2 my-2 py-2 card form-styles info-travel">
-          <h3 class="text-center">Flight Data</h3>
-          <div class="card-body border-top-form">
-            <h5 class="card-title">Please Enter the Following :</h5>
-            <div class="form-floating mb-3">
-              <input type="number" class="form-control" min="2" max="853" id="passengers" placeholder="d-none" required>
-              <label for="passengers">Total # of Passengers</label>
-            </div>
-            <div class="form-floating mb-3">
-              <input type="text" class="form-control" maxlength="3" id="d-airport-code" placeholder="d-none" required>
-              <label for="d-airport-code">Departure Airport Code</label>
-            </div>
-            <div class="form-floating mb-3">
-              <input type="text" class="form-control" maxlength="3"  id="a-airport-code" placeholder="d-none" required>
-              <label for="a-airport-code">Ariving Airport Code</label>
-            </div>
-            <div class="form-check mb-3">
-              <input class="form-check-input" type="checkbox" id="return-trip">
-              <label class="form-check-label" for="return-trip">
-                Include Return Trip
-              </label>
-            </div>
-            <div>
-              <button id="airplane-form-btn">Submit</button>
-            </div>
-          </div>
-        </div> 
-      </form> 
 
       <div class="row">
-        <div class="col-12 mt-1 d-none d-md-flex">
+        <div class="col-4">
+          <div class="mx-2 my-2 py-2 form-styles">
+            <h3 class="text-center text-white">Method of Travel</h3>
+            <div class="border-top-form"></div>
+            <div class="px-3 my-2">
+              <p>See how much carbon dioxide your car puts in to the atmosphere after driving a certin distance!</p>
+              <button class="col-12 py-2" id="vehicle-btn">Car</button>
+            </div>
+            <div class="px-3 my-3">
+              <p>See how much carbon dioxide your flight will put into the atmosphere! Just enter in the airport IATA code for your arival and destination airports. This can be found by googleing your airport and entering in the 3 letter code found on the search page.</p>
+              <button class="col-12 py-2" id="flight-btn">Flight</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-4">
+          <div class="mx-2 my-2 py-2 form-styles">
+            <h3 class="text-center text-white">Results</h3>
+            <div class="border-top-form"></div>
+            <div id="results" class="fs-5"></div>
+          </div>
+        </div>
+
+        <form class="col-4" id="vehicle-form">
+          <div class="mx-2 my-2 py-2 card form-styles info-travel">
+            <h3 class="text-center">Vehicle Data</h3>
+            <div class="card-body border-top-form">
+              <h5 class="card-title">Please Enter the Following :</h5>
+              <div class="form-floating mb-3">
+                <input type="text" class="form-control" id="make" placeholder="d-none" required>
+                <label for="make">Make</label>
+              </div>
+              <div class="form-floating mb-3">
+                <input type="text" class="form-control" id="model" placeholder="d-none" required>
+                <label for="model">Model</label>
+              </div>
+              <div class="form-floating mb-3">
+                <input type="number" class="form-control" id="year" placeholder="d-none" required>
+                <label for="year">Year</label>
+              </div>
+              <div class="row mb-3">
+                <div class="col-7">
+                  <div class="form-floating ">
+                    <input type="number" class="form-control" min="1" id="distance-value" placeholder="d-none" required>
+                    <label for="distance-value">Distance Value</label>
+                  </div>
+                </div>
+                <div class="col-4">
+                  <select class=" form-select" aria-label="Default select example" id="distance-unit" required>
+                    <option disabled selected>Unit</option>
+                    <option value="mi">Miles</option>
+                    <option value="km">KM</option>
+                  </select>
+                </div>
+              </div>
+              <div>
+                <button id="vehicle-form-btn">Submit</button>
+              </div>
+            </div>
+          </div> 
+        </form>
+        
+        <form class="col-4 d-none" id="flight-form">
+          <div class="mx-2 my-2 py-2 card form-styles info-travel">
+            <h3 class="text-center">Flight Data</h3>
+            <div class="card-body border-top-form">
+              <h5 class="card-title">Please Enter the Following :</h5>
+              <div class="form-floating mb-3">
+                <input type="number" class="form-control" min="2" max="853" id="passengers" placeholder="d-none" required>
+                <label for="passengers">Total # of Passengers</label>
+              </div>
+              <div class="form-floating mb-3">
+                <input type="text" class="form-control" maxlength="3" id="d-airport-code" placeholder="d-none" required>
+                <label for="d-airport-code">Departure Airport Code</label>
+              </div>
+              <div class="form-floating mb-3">
+                <input type="text" class="form-control" maxlength="3"  id="a-airport-code" placeholder="d-none" required>
+                <label for="a-airport-code">Ariving Airport Code</label>
+              </div>
+              <div class="form-check mb-3">
+                <input class="form-check-input" type="checkbox" id="return-trip">
+                <label class="form-check-label" for="return-trip">
+                  Include Return Trip
+                </label>
+              </div>
+              <div>
+                <button id="airplane-form-btn">Submit</button>
+              </div>
+            </div>
+          </div> 
+        </form>
+      </div> 
+
+      <div class="row">
+        <div class="col-12 mt-1 mx-0 px-0 d-none d-md-flex">
           <img class="banner-travel " id="img-vehicles" src="./assets/images/traffic.jpg" />
           <img class="banner-travel d-none" id="img-flight" src="./assets/images/flight.jpg" />
         </div>
       </div>
+    </div>
   </section> 
   <!-- End of Travel Estimates -->
 

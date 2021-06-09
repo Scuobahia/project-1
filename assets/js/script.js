@@ -66,7 +66,6 @@ function getVehicleMake(event) {
   event.preventDefault();
   $("#results").html("<p class='px-2 mt-2 text-center' fw-bold>Loading your Results <div class='loader pb-2 my-auto mx-auto'</div></p>")
   var userMake = $("#make").val();
-  console.log(userMake)
   userMake = userMake.trim().toLowerCase().split(" ");
     for (var i = 0; i < userMake.length; i++) {
         userMake[i] = userMake[i].charAt(0).toUpperCase() + userMake[i].substring(1);
@@ -90,13 +89,14 @@ function getVehicleMake(event) {
           }
         }
         if (!check) {
-          alert("Error Vehicle make not found! Please Try again")
+          $("#results").html("<p class='text-center px-2 py-3'>Vehicle make not found. Please enter a valid vehicle make!</p>");
         }
         else {
           getVehicleModel(userMake, make);
         }
-    }, error: function(data) {
-      console.log(data);
+    }, error: function() {
+      alert("Their was a network error while trying to get your request. Please try again.");
+      $("#results").html(" ");
     }
   })
 }
@@ -115,7 +115,7 @@ function getVehicleModel(make, makeID) {
     userYear = parseInt(userYear);
 
   $.ajax({
-    url: 'https://www.carboninterface.com/api/v1/vehicle_makes/' + makeID + "/vehicle_models",
+    url: 'https://www.carboninterface.com/api/v1/vehicle_makes/' + makeId + "/vehicle_models",
     method: "GET",
     contentType: "application/json",
     beforeSend: function(xhr) {
@@ -131,13 +131,14 @@ function getVehicleModel(make, makeID) {
           }
         }
         if (!check) {
-          alert("Error Vehicle model or year not found! Please Try again")
+          $("#results").html("<p class='text-center px-2 py-3'>Vehicle model and/or year not found. Please enter a valid vehicle model and year!</p>");
         }
         else {
           vehicleEstimateRequest(car, make, userModel, userYear);
         }
-    }, error: function(data) {
-      console.log(data);
+    }, error: function() {
+      alert("Their was a network error while trying to get your request. Please try again.");
+      $("#results").html(" ");
     }
   })
 }
@@ -240,17 +241,23 @@ function shippingEstimateRequest() {
   });  
 }
 
+//Event Handlers
   $("#header").on("click", navCLicked);
   //Travel Estimates events
   $("#vehicle-btn").on("click", function(event) {
     event.preventDefault();
     $("#vehicle-form").removeClass("d-none");
     $("#flight-form").addClass("d-none");
+    $("#img-vehicles").removeClass("d-none");
+    $("#img-flight").addClass("d-none");
+
   });
   $("#flight-btn").on("click", function(event) {
     event.preventDefault();
     $("#vehicle-form").addClass("d-none");
     $("#flight-form").removeClass("d-none");
+    $("#img-vehicles").addClass("d-none");
+    $("#img-flight").removeClass("d-none");
   });
   $("#vehicle-form").on("submit", getVehicleMake);
 

@@ -2,14 +2,17 @@ var airports = {};
 var dataTotal = {};
 var dataPerPerson = {};
 var flightCount = 0;
-var aviationGlobalEmitions = 943000000;  //943,000,000 Metric Tons, 29.90233 Metric Tons per Second, 0.2990233 every 10ms
+var aviationGlobalEmissions = 943000000;  //943,000,000 Metric Tons, 29.90233 Metric Tons per Second, 0.2990233 every 10ms
 var vehicleGlobalEmissions = 6000000000;   //6,000,000,000 Metric Tons, 190.25875 Metric Tons per Second, 1.9025875 every 10ms
 var shippingGlobalEmissions = 848000000;   //848,000,000 Metric Tons, 26.88990 Metric tons per Second, 0.2688990 every 10ms
 var energyGenerationGlobalEmissions = 33100000000; //33,100,000,000 Metric Tons, 1,049.59411 Metric Tons per Second, 10.4959411 every 10ms
 var totalGlobalEmissions = 40891000000 ; //40,891,000,000 Metric Tons, 1,296.64510 Metric Tons per Second, 12.9664510 every 10ms
-// To give a little prespective on these numbers: Imagine lifting an entire mountain that is 10000 feet tall into the sky. 
-// Now pulvize the mountain and turn it into dust. Now spread that dust over the entire planet over the next 6 years. 
-//Now turn all that dust in to Carbon Dioxide. This is how much CO2 we are putting in to the atmosphere.
+var currentAviationEmissions = 0;
+var currentVehicleEmissions = 0;
+var currentShippingEmissions = 0;
+var currentEnergyEmissions = 0;
+var currentGlobalEmissions = 0;
+var currentEmissionsTimer = null;
 
 
 function navCLicked(event) {
@@ -38,6 +41,7 @@ function navCLicked(event) {
     case "global-carbon-emitions":
       displayNoneAll();
       footerClassChange();
+      initalizeGlobalEmissions();
       $("#global-carbon-emissions-page").removeClass("d-none");
       $("#footer").addClass("");
       break;
@@ -63,6 +67,7 @@ function displayNoneAll() {
   $("#global-carbon-emissions-page").addClass("d-none");
   $("#climate-change-page").addClass("d-none");
   $("#about-us-page").addClass("d-none");
+ clearInterval(currentEmissionsTimer);
 }
 
 function footerClassChange() {
@@ -309,11 +314,42 @@ function shippingEstimateRequest() {
 }
 
 function initalizeGlobalEmissions() {
-
+  var today = moment();
+  var startOfTheYear = moment("2021-01-01 00:00:00")
+  var diffrence = Math.round(moment.duration(today.diff(startOfTheYear)).as("seconds"));
+  currentAviationEmissions = 29.90233 * diffrence;
+  currentVehicleEmissions = 190.25875 * diffrence;
+  currentShippingEmissions = 26.88990 * diffrence;
+  currentEnergyEmissions = 1049.59411 * diffrence;
+  currentGlobalEmissions = 1296.64510 * diffrence;
+  currentEmissionsTimer = setInterval(globalEmissions, 10);
 }
 
 function globalEmissions() {
+  currentAviationEmissions = Math.round((currentAviationEmissions + 0.2990233) * 100) / 100;
+  var tempAviation = Math.round(currentAviationEmissions);
+  var aviation = tempAviation.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
+  $("#current-aviation").text(aviation);
 
+  currentVehicleEmissions = Math.round((currentVehicleEmissions + 1.9025875) * 100) / 100;
+  var tempVehicles = Math.round(currentVehicleEmissions);
+  var vehicles = tempVehicles.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
+  $("#current-vehicle").text(vehicles);
+
+  currentShippingEmissions = Math.round((currentShippingEmissions + 0.2688990) *100) / 100;
+  var tempShipping = Math.round(currentShippingEmissions);
+  var shipping = tempShipping.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
+  $("#current-shipping").text(shipping);
+
+  currentEnergyEmissions = Math.round((currentEnergyEmissions + 10.4959411) * 100) / 100;
+  var tempEnergy = Math.round(currentEnergyEmissions);
+  var energy = tempEnergy.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
+  $("#current-energy").text(energy);
+
+  currentGlobalEmissions = Math.round((currentGlobalEmissions + 12.9664510) * 100) / 100;
+  var tempGlobal = Math.round(currentGlobalEmissions);
+  var global = tempGlobal.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
+  $("#current-global").text(global);
 }
 
 //Event Handlers

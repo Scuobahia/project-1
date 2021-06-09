@@ -318,9 +318,45 @@ footer {
     border-radius: 15px;
     font-family: "Orbitron";
 }
+
+/* Global Emissions Styles */
+.CEC { /* current emissions counter */
+    background-color: var(--third-color);
+    border-radius: 10px;
+    font-family: "Orbitron";
+    color: white;
+    width: 100%;
+}
+
+.CEC h2 {
+    text-align: left;
+    font-size: 1.5em;
+}
+
+.CEC h3 {
+    color: var(--main-color);
+    font-size: 1.3em;
+}
+
+.CEC p {
+    
+}
+
+.global h2 {
+    font-size: 2em;
+}
+
+.global h3 {
+    font-size: 1.7em;
+}
+
+.global p {
+    font-size: 1.2em;
+}
+
+
+
 /* About Us Styles */
-
-
 .us-body {
     margin-top: 50px;
     margin-bottom: 50px;

@@ -8,27 +8,39 @@ function navCLicked(event) {
   switch (targetId){
     case "title":
       displayNoneAll();
+      footerClassChange();
       $("#landing-page").removeClass("d-none");
+      $("#footer").addClass("");
       break;
     case "travel-estimates":
       displayNoneAll();
+      footerClassChange();
       $("#travel-estimates-page").removeClass("d-none");
+      $("#footer").addClass("");
       break;
     case "shipping":
       displayNoneAll();
+      footerClassChange();
       $("#shipping-page").removeClass("d-none");
+      $("#footer").addClass("");
       break;
     case "global-carbon-emitions":
       displayNoneAll();
+      footerClassChange();
       $("#global-carbon-emissions-page").removeClass("d-none");
+      $("#footer").addClass("");
       break;
     case "climate-change":
       displayNoneAll();
+      footerClassChange();
       $("#climate-change-page").removeClass("d-none");
+      $("#footer").addClass("");
       break;
     case "about-us":
       displayNoneAll();
+      footerClassChange();
       $("#about-us-page").removeClass("d-none");
+      $("#footer").addClass("");
       break;
   }
 }
@@ -36,6 +48,14 @@ function navCLicked(event) {
 function displayNoneAll() {
   $("#landing-page").addClass("d-none");
   $("#travel-estimates-page").addClass("d-none");
+  $("#shipping-page").addClass("d-none");
+  $("#global-carbon-emissions-page").addClass("d-none");
+  $("#climate-change-page").addClass("d-none");
+  $("#about-us-page").removeClass("d-none");
+}
+
+function footerClassChange() {
+  $("#footer").removeClass("");
 }
 
 function travelElectricCar() {

@@ -1,5 +1,8 @@
-// API_KEY: HZOkJvglLARzHsXWm755Q
 var airports = {};
+var dataTotal = {};
+var dataPerPerson = {};
+var flightCount = 0;
+
 function navCLicked(event) {
     // Handles user clicks on a nav bar button
   event.preventDefault();
@@ -64,13 +67,18 @@ function travelElectricCar() {
 function getVehicleMake(event) {
   // gets user data from car form and finds the make, then if it can find it calls the getVehicleModel function.
   event.preventDefault();
-  $("#results").html("<p class='px-2 mt-2 text-center' fw-bold>Loading your Results <div class='loader pb-2 my-auto mx-auto'</div></p>")
+  $("#results").html("<p class='px-2 mt-2 text-center' fw-bold>Loading your Results <div class='loader pb-2 my-auto mx-auto'</div></p>");
   var userMake = $("#make").val();
   userMake = userMake.trim().toLowerCase().split(" ");
     for (var i = 0; i < userMake.length; i++) {
         userMake[i] = userMake[i].charAt(0).toUpperCase() + userMake[i].substring(1);
     }
     userMake = userMake.join(" ");
+    var testUnit = $("#distance-unit").val()
+    if (!testUnit) {
+      $("#results").html("<p class='text-center px-2 py-3'>You must select a distance unit!</p>");
+      return;
+    }
 
   $.ajax({
     url: 'https://www.carboninterface.com/api/v1/vehicle_makes',
@@ -115,13 +123,12 @@ function getVehicleModel(make, makeID) {
     userYear = parseInt(userYear);
 
   $.ajax({
-    url: 'https://www.carboninterface.com/api/v1/vehicle_makes/' + makeId + "/vehicle_models",
+    url: 'https://www.carboninterface.com/api/v1/vehicle_makes/' + makeID + "/vehicle_models",
     method: "GET",
     contentType: "application/json",
     beforeSend: function(xhr) {
          xhr.setRequestHeader("Authorization", "Bearer HZOkJvglLARzHsXWm755Q")
     }, success: function(data){
-        console.log(data);
         var check = false;
         for (var i = 0; i < data.length; i++) {
           if (userModel === data[i].data.attributes.name && userYear === data[i].data.attributes.year) {
@@ -163,7 +170,6 @@ function vehicleEstimateRequest(modelId, make, model, year) {
     }),
   }).then((response) => response.json())
   .then((data) => {
-    console.log(data);
     if (distanceUnit === "mi") {
       var unit = "Miles";
     }
@@ -197,7 +203,53 @@ function electricityEstimateRequest() {
   });
 }
 
-function flightEstimateRequest() {
+function flightFormSubmit(event) {
+  event.preventDefault();
+  flightCount = 0;
+  $("#results").html("<p class='px-2 mt-2 text-center'>Loading your Results <div class='loader pb-2 my-auto mx-auto'</div></p>");
+
+  if ($("#return-trip").is(':checked')) {
+    $("#return-trip").attr('value', true);
+  }
+  else {
+    $("#return-trip").attr('value', false);
+  }
+  var passengers = $("#passengers").val();
+  var departureAirport = $("#d-airport-code").val();
+  var arivingAirport = $("#a-airport-code").val();
+  var returnTrip = $("#return-trip").val();
+  var legs = [];
+
+  arivingAirport = arivingAirport.toLowerCase();
+  departureAirport = departureAirport.toLowerCase();
+  var tempAirport = {
+    "departure_airport": departureAirport,
+    "destination_airport": arivingAirport
+  }
+  legs.push(tempAirport);
+
+  if (returnTrip === 'true') {
+    tempAirport = {
+      "departure_airport": arivingAirport,
+      "destination_airport": departureAirport
+    };
+    legs.push(tempAirport);
+  }
+
+  flightEstimateRequest(passengers, legs);
+}
+
+function postFlightData() {
+  var pounds = dataTotal.data.attributes.carbon_lb;
+  var mt = dataTotal.data.attributes.carbon_mt;
+  var distance = dataTotal.data.attributes.distance_value;
+  var carbonPerPerson = dataPerPerson.data.attributes.carbon_lb;
+
+  $("#results").html("<p class='py-2 px-2 text-center'>Your total cabon emitions for your flight are <span class='main-color fw-bold'>" + pounds + " Pounds or " + mt + " Megatons " + "</span>of CO2 put in to the atmosphere with a total distance traveled of: <span class='main-color fw-bold'>" + distance + " Miles" +"</span>. The carbon emissions per person are:  <span class='main-color fw-bold'>" + carbonPerPerson + " Pounds</span> of CO2 released per person in to the atmosphere durring the flight. </p>" );
+}  
+
+
+function flightEstimateRequest(passengers, legs) {
   // average flights each day: 285,0000
   fetch("https://www.carboninterface.com/api/v1/estimates", {
     method: "POST",
@@ -207,15 +259,26 @@ function flightEstimateRequest() {
     },
     body: JSON.stringify({
       "type": "flight",
-        "passengers": 2,
-        "legs": [
-          {"departure_airport": "sfo", "destination_airport": "yyz"},
-          {"departure_airport": "yyz", "destination_airport": "sfo"}
-        ]
+        "passengers": passengers,
+        "distance_unit": "mi",
+        "legs": legs
     }),
   }).then((response) => response.json())
   .then((data) => {
-    console.log(data);
+    if (data.message) {
+      $("#results").html("<p class='text-center px-2 py-3'>Airport ID not found. Please use the airports 3 letter IATA code.</p>");
+      return;
+    }
+    flightCount++;
+    if (flightCount === 1) {
+      dataTotal = data;
+      flightEstimateRequest(1, legs);
+    }
+    else if (flightCount === 2) {
+      dataPerPerson = data;    
+      postFlightData();
+      flightCount = 0;
+    }
   });
 }
 
@@ -260,6 +323,7 @@ function shippingEstimateRequest() {
     $("#img-flight").removeClass("d-none");
   });
   $("#vehicle-form").on("submit", getVehicleMake);
+  $("#flight-form").on("submit", flightFormSubmit);
 
   
 

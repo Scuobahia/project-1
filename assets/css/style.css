@@ -453,7 +453,7 @@ footer {
     background: lightgray;
     border-radius: 15px;
     border-style: solid var(--form-background);
-    border width: 10px;
+    border-width: 10px;
 }
 
 #wind-mill-pic {
@@ -532,7 +532,7 @@ footer {
     text-indent: 15px;
 }
 /* Spin Animation */
-@keyframes spin {
+@keyframes spin-2 {
   from {
     transform: rotateY(0);
   }
@@ -542,7 +542,7 @@ footer {
 }
 
 .card15 {
-  animation: spin 5s ease;
+  animation: spin-2 5s ease;
   animation-iteration-count:initial;
 }
 /* End of Spin Animation */
@@ -568,7 +568,7 @@ footer {
 
 }
 
-/* Extra large devices (large desktops, 1200px and up) */576
+/* Extra large devices (large desktops, 1200px and up) */
 @media (min-width: 1200px) {
 
 

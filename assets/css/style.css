@@ -327,6 +327,7 @@ footer {
     color:white;
     letter-spacing: 10px;
     width: 100%;
+    text-shadow: 1px 1px 3px black;
 }
 
 .CEC h2 {
@@ -336,7 +337,7 @@ footer {
 
 .CEC h3 {
     color:rgb(180, 43, 43);
-    font-size: 3vh;
+    font-size: 1.2vw;
     font-weight: bolder;
 }
 .global h2 {
@@ -362,7 +363,7 @@ footer {
 .bar {
     height: 100px;
     background-color:var(--third-color) ;
-    font-size: 3vh;
+    font-size: 2vh;
     font-family: "Orbitron";
     color: white;
     letter-spacing: 10px;

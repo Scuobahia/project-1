@@ -433,7 +433,8 @@ footer {
 
 #climate-change-text {
     font-family: 'Orbitron';
-    font-size: 2vh;
+    font-size: 2.5vh;
+    font-weight: bolder;
 }
 
 #climate-change-page {
@@ -449,6 +450,18 @@ footer {
 
 #climate-page-divs {
     margin-top: 50px;
+    background: lightgray;
+    border-radius: 15px;
+    border-style: solid var(--form-background);
+    border width: 10px;
+}
+
+#wind-mill-pic {
+    opacity: 90%;
+}
+
+#video-space-left {
+    padding-left: 35px;
 }
 
 /* Climate Page End */
@@ -533,5 +546,28 @@ footer {
   animation-iteration-count:initial;
 }
 /* End of Spin Animation */
+
+
+
+/*Small devices (landscape phones, 576px and up)*/
+
+@media (min-width: 576px) {
+
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+
+}
+
+/* Large devices (desktops, 992px and up) */ 
+@media (min-width: 992px) {
+
+}
+
+/* Extra large devices (large desktops, 1200px and up) */576
+@media (min-width: 1200px) {
+
+}
 
 

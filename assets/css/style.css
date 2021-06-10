@@ -435,6 +435,7 @@ footer {
     font-family: 'Orbitron';
     font-size: 2.5vh;
     font-weight: bolder;
+    color: rgb(64, 200, 88);
 }
 
 #climate-change-page {
@@ -445,13 +446,13 @@ footer {
 }
 
 #carbon-footprint-picture {
-    opacity: 40%;
+    opacity: 70%;
 }
 
 #climate-page-divs {
     margin-top: 50px;
-    background: lightgray;
-    border-radius: 15px;
+    background: rgba(0, 0, 0, 0.64);
+    border-radius: 25px;
     border-style: solid var(--form-background);
     border-width: 10px;
 }
@@ -552,6 +553,26 @@ footer {
 /*Small devices (landscape phones, 576px and up)*/
 
 @media (min-width: 576px) {
+    #landing-page-start-form {
+        justify-content: center;
+    }
+    #carbon-footprint-picture {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    #global-warming-video {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    #wind-mill-pic {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
 
 }
 

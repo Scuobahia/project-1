@@ -562,11 +562,15 @@ footer {
 
 /* Large devices (desktops, 992px and up) */ 
 @media (min-width: 992px) {
+    #landing-page-become-a-watcher {
+        text-align: center;
+    }
 
 }
 
 /* Extra large devices (large desktops, 1200px and up) */576
 @media (min-width: 1200px) {
+
 
 }
 

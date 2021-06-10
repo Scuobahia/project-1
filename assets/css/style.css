@@ -381,3 +381,19 @@ footer {
     padding: 20px;
     text-indent: 15px;
 }
+
+#climate-change-space {
+    padding: 50px;
+}
+
+#climate-change-text {
+    font-family: 'Orbitron';
+    font-size: 2vh;
+}
+
+#climate-change-page {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-image: url(https://images.unsplash.com/photo-1520531158340-44015069e78e?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1138&q=80);
+}

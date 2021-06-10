@@ -532,7 +532,7 @@ footer {
     text-indent: 15px;
 }
 /* Spin Animation */
-@keyframes spin {
+@keyframes spin-2 {
   from {
     transform: rotateY(0);
   }
@@ -542,7 +542,7 @@ footer {
 }
 
 .card15 {
-  animation: spin 5s ease;
+  animation: spin-2 5s ease;
   animation-iteration-count:initial;
 }
 /* End of Spin Animation */

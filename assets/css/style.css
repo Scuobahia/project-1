@@ -321,10 +321,11 @@ footer {
 
 /* Global Emissions Styles */
 .CEC { /* current emissions counter */
-    background-color: var(--third-color);
+    background-color: rgba(0, 108, 158,0.8);
     border-radius: 10px;
     font-family: "Orbitron";
-    color: white;
+    color:white;
+    letter-spacing: 10px;
     width: 100%;
 }
 
@@ -334,14 +335,10 @@ footer {
 }
 
 .CEC h3 {
-    color: var(--main-color);
-    font-size: 1.3em;
+    color:rgb(180, 43, 43);
+    font-size: 3vh;
+    font-weight: bolder;
 }
-
-.CEC p {
-    
-}
-
 .global h2 {
     font-size: 2em;
 }
@@ -353,14 +350,92 @@ footer {
 .global p {
     font-size: 1.2em;
 }
-
-
-
+.global-background {
+    height: 950px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    background-image: url(https://source.unsplash.com/jEXR62jw34Y/2200x1600); 
+    background-size: cover;
+}
+.bar {
+    height: 100px;
+    background-color:var(--third-color) ;
+    font-size: 3vh;
+    font-family: "Orbitron";
+    color: white;
+    letter-spacing: 10px;
+    border-radius: 10px;
+}
+.global-span {
+    color: rgb(180, 43, 43);
+}
+/* Global Modal */
+.modal-button2{
+    display: flex;
+    flex-wrap: wrap;
+    background-color:var(--main-color);
+    justify-content: center;
+    box-sizing:border-box;
+    font-family:"Orbitron";
+    font-size: 2vh;
+    letter-spacing: 10px;
+    color: white;
+    border: 0;
+    border-radius: 5px;
+    padding: 10px 25px;
+    width: 300px;
+    margin-left: 200px;
+}
+.modal-container2 {
+    background-color: rgba(0, 0, 0, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    opacity: 0;
+    pointer-events: none;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100%;
+}
+.modal-container2.show {
+    pointer-events: auto;
+    opacity: 1;
+}
+.modal2 {
+    background-color: white;
+    border-radius: 15px;
+    padding: 30px 50px;
+    width: 600px;
+    max-width: 100%;
+    text-align: center;
+}
+.modal2 h1 {
+    color:rgb(180, 43, 43);
+    font-family: "Permanent Marker";
+}
+.modal2 p {
+    font-family: "Orbitron";
+    font-size: 2vh;
+    font-weight: bold;
+}
+/* End of Modal Styles */
 /* About Us Styles */
 .us-body {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
     margin-top: 50px;
     margin-bottom: 50px;
     height: 900px;
+  
+}
+.us-row {
+    background-image: url(https://source.unsplash.com/gp6x0laiqz0/1920x1440);
+    background-size: cover;
 }
 .us-card {
     height: 900px;
@@ -369,7 +444,6 @@ footer {
     background-color: var(--main-color);
     box-shadow: 5px 5px 5px rgba(0,0,0,0.7);
     font-family: "Orbitron";
-   
 }
 .us-card2 {
     height: 900px;
@@ -379,7 +453,6 @@ footer {
     box-shadow: 5px 5px 5px rgba(0,0,0,0.7);
     font-family: 'Orbitron';
 }
-
 .us-card3 {
     height: 900px;
     border: none;
@@ -387,7 +460,6 @@ footer {
     background-color: black;
     box-shadow: 5px 5px 5px rgba(0,0,0,0.7);
     font-family: "Orbitron";
-
 }
 .us-card4 {
     height: 900px;
@@ -404,11 +476,29 @@ footer {
     text-align: center;
     padding: 20px;
 }
+/*Images Styles for the about us */
 .profile {
     height: 400px;
+    width: 100%;
     border-radius: 10px;
 }
+/* end of Images Styles */
 .text-profile {
     padding: 20px;
     text-indent: 15px;
 }
+/* Spin Animation */
+@keyframes spin {
+  from {
+    transform: rotateY(0);
+  }
+  to {
+    transform: rotateY(1turn);
+  }
+}
+
+.card15 {
+  animation: spin 5s ease;
+  animation-iteration-count:initial;
+}
+/* End of Spin Animation */

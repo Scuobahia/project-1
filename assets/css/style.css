@@ -426,6 +426,16 @@ footer {
 
 
 /* Climate Change Page */
+
+#climate-change-space {
+    padding: 50px;
+}
+
+#climate-change-text {
+    font-family: 'Orbitron';
+    font-size: 2vh;
+}
+
 #climate-change-page {
     width: 100%;
     height: 100%;
@@ -439,6 +449,7 @@ footer {
 
 #climate-page-divs {
     margin-top: 50px;
+}
 
 /* Climate Page End */
 

@@ -7,7 +7,6 @@ This website offers a view into how many emissions you contribute to the grand s
 
 ## Website Link:
 https://scuobahia.github.io/project-1/
-## Image:
 
 ## Sources:
 

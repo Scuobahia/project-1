@@ -22,38 +22,32 @@ function navCLicked(event) {
   switch (targetId){
     case "title":
       displayNoneAll();
-      footerClassChange();
       $("#landing-page").removeClass("d-none");
       $("#footer").addClass("");
       break;
     case "travel-estimates":
       displayNoneAll();
-      footerClassChange();
       $("#travel-estimates-page").removeClass("d-none");
       $("#footer").addClass("");
       break;
     case "shipping":
       displayNoneAll();
-      footerClassChange();
       $("#shipping-page").removeClass("d-none");
       $("#footer").addClass("");
       break;
     case "global-carbon-emitions":
       displayNoneAll();
-      footerClassChange();
       initalizeGlobalEmissions();
       $("#global-carbon-emissions-page").removeClass("d-none");
       $("#footer").addClass("");
       break;
     case "climate-change":
       displayNoneAll();
-      footerClassChange();
       $("#climate-change-page").removeClass("d-none");
       $("#footer").addClass("");
       break;
     case "about-us":
       displayNoneAll();
-      footerClassChange();
       $("#about-us-page").removeClass("d-none");
       $("#footer").addClass("");
       break;
@@ -68,10 +62,6 @@ function displayNoneAll() {
   $("#climate-change-page").addClass("d-none");
   $("#about-us-page").addClass("d-none");
  clearInterval(currentEmissionsTimer);
-}
-
-function footerClassChange() {
-  $("#footer").removeClass("");
 }
 
 function getVehicleMake(event) {

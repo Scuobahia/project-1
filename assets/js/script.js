@@ -270,28 +270,50 @@ function flightEstimateRequest(passengers, legs) {
   });
 }
 
-function electricityEstimateRequest() {
-  //fetches electricity estimates from the api based on user data.
-  fetch("https://www.carboninterface.com/api/v1/estimates", {
-    method: "POST",
-    headers: {
-      'Authorization': 'Bearer HZOkJvglLARzHsXWm755Q',
-      'content-type': 'application/json'
-    },
-    body: JSON.stringify({
-      "type": "electricity",
-      "electricity_unit": "kwh",
-      "electricity_value": 100,
-      "country": "us",
-      "state": "ut",
-    }),
-  }).then((response) => response.json())
-  .then((data) => {
-    console.log(data);
-  });
+// function electricityEstimateRequest() {
+//   //fetches electricity estimates from the api based on user data.
+//   fetch("https://www.carboninterface.com/api/v1/estimates", {
+//     method: "POST",
+//     headers: {
+//       'Authorization': 'Bearer HZOkJvglLARzHsXWm755Q',
+//       'content-type': 'application/json'
+//     },
+//     body: JSON.stringify({
+//       "type": "electricity",
+//       "electricity_unit": "kwh",
+//       "electricity_value": 100,
+//       "country": "us",
+//       "state": "ut",
+//     }),
+//   }).then((response) => response.json())
+//   .then((data) => {
+//     console.log(data);
+//   });
+// }
+
+function shippingFormSubmit(event) {
+  event.preventDefault();
+  $("#results-shipping").html("<p class='px-2 mt-2 text-center'>Loading your Results <div class='loader pb-2 my-auto mx-auto'</div></p>");
+
+  var weightValue = $("#weight-value").val();
+  var weightUnit = $("#weight-unit").val();
+  var distanceValue = $("#s-distance-value").val();
+  var distanceUnit = $("#s-distance-unit").val();
+  var shippingMethod = $("#shipping-method").val();
+  
+  if (weightValue <= 0.1) {
+    $("#results").html("<p class='text-center px-2 py-3'>Weight value must be greater than 0.1! Please enter a valid weight value</p>");
+    return;
+  }
+  if (distanceValue <= 0) {
+    $("#results").html("<p class='text-center px-2 py-3'>Distance value must be greater than 0! Please enter a valid distance value.</p>");
+     return;
+  }
+ 
+  shippingEstimateRequest(weightValue, weightUnit, distanceValue, distanceUnit, shippingMethod);
 }
 
-function shippingEstimateRequest() {
+function shippingEstimateRequest(weight, weightUnit, distance, distanceUnit, method) {
   //fetches shipping estimates from the api based on user data
   fetch("https://www.carboninterface.com/api/v1/estimates", {
     method: "POST",
@@ -301,15 +323,37 @@ function shippingEstimateRequest() {
     },
     body: JSON.stringify({
       "type": "shipping",
-      "weight_value": 200,
-      "weight_unit": "g",
-      "distance_value": 2000,
-      "distance_unit": "km",
-      "transport_method": "truck"
+      "weight_value": weight,
+      "weight_unit": weightUnit,
+      "distance_value": distance,
+      "distance_unit": distanceUnit,
+      "transport_method": method
     }),
   }).then((response) => response.json())
   .then((data) => {
-    console.log(data);
+    if (data.message) {
+      $("#results-shipping").html("<p class='text-center px-2 py-3'>Server Error: Invalid Request Please try again.</p>");
+      return;
+    }
+    if (distanceUnit === "mi"){
+      distanceUnit = "Miles";
+    }
+    else {
+      distanceUnit = "Kilometers";
+    }
+    var carbonG = Math.round((data.data.attributes.carbon_g ) * 100) / 100;
+    var carbonlb = Math.round((data.data.attributes.carbon_lb) * 100) / 100;
+    var carbonMT = Math.round((data.data.attributes.carbon_mt) * 100) / 100;
+
+    if (carbonG < 500) {
+      $("#results-shipping").html("<p class='text-center px-2 py-3'>Your package would create <span class='main-color'>" + carbonG + " grams</span> of CO2 emissions after traveling " + distance + " " + distanceUnit + " via " + method +  ".</p>");
+    }
+    else if (carbonlb >= 1.1 && carbonlb <= 2250) {
+      $("#results-shipping").html("<p class='text-center px-2 py-3'>Your package would create <span class='main-color'>" + carbonlb + " pounds</span> of CO2 emissions after traveling " + distance + " " + distanceUnit + " via " + method +  ".</p>");
+    }
+    else if (carbonMT > 1) {
+      $("#results-shipping").html("<p class='text-center px-2 py-3'>Your package would create <span class='main-color'>" + carbonMT + " metric tons</span> of CO2 emissions after traveling " + distance + " " + distanceUnit + " via " + method +  ".</p>");
+    }
   });  
 }
 
@@ -371,6 +415,7 @@ function globalEmissions() {
   });
   $("#vehicle-form").on("submit", getVehicleMake);
   $("#flight-form").on("submit", flightFormSubmit);
+  $("#shipping-form").on("submit", shippingFormSubmit);
 
 
 // Modal 

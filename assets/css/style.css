@@ -337,7 +337,7 @@ footer {
 
 .CEC h3 {
     color:rgb(180, 43, 43);
-    font-size: 1.2vw;
+    font-size: 1.5em;
     font-weight: bolder;
 }
 .global h2 {
@@ -349,10 +349,9 @@ footer {
 }
 
 .global p {
-    font-size: 1.2em;
+    font-size: 1.5em;
 }
 .global-background {
-    height: 950px;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -386,7 +385,7 @@ footer {
     border-radius: 5px;
     padding: 10px 25px;
     width: 300px;
-    margin-left: 200px;
+    margin: 10px 100px;
 }
 .modal-container2 {
     background-color: rgba(0, 0, 0, 0.3);
